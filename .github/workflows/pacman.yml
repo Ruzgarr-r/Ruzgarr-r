@@ -1,17 +1,12 @@
 name: Generate Pacman Contribution Graph
 
 on:
-  # Her gece saat 00:00'da otomatik çalışır
   schedule:
     - cron: "0 0 * * *"
-  
-  # Manuel olarak tetiklemeye izin verir
   workflow_dispatch:
-  
-  # main dalına kod gönderildiğinde çalışır
   push:
     branches:
-    - main
+      - main
 
 jobs:
   generate:
@@ -21,15 +16,13 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      # Pacman animasyonlu SVG dosyasını üretir
       - name: generate pacman.svg
         uses: platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/pacman.svg?palette=pacman
+            dist/pacman.svg?color_snake=#F2D600&color_dots=#161b22,#0e4429,#006d32,#26a641,#39d353
 
-      # Üretilen SVG dosyasını "output" adında ayrı bir dala (branch) pushlar
       - name: push pacman.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
