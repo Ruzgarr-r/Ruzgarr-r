@@ -1,4 +1,5 @@
-## Welcome to my Profile Mate 🖐
+![Neofetch Stats](https://neofetch-profile.vercel.app/api?username=Ruzgarr-r)
+
 🖥 Messes with computers and servers.
 
 **I'm currently working on:**
